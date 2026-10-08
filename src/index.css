@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+
+  --color-brand-50: #fdf3f5;
+  --color-brand-100: #fbe5ea;
+  --color-brand-200: #f6c9d4;
+  --color-brand-300: #ef9fb3;
+  --color-brand-400: #e46d8c;
+  --color-brand-500: #d64768;
+  --color-brand-600: #a82e46;
+  --color-brand-700: #8f263b;
+  --color-brand-800: #772235;
+  --color-brand-900: #641f2f;
+  --color-brand-950: #3a0f1a;
+
+  --color-gold-300: #d8caa0;
+  --color-gold-400: #c4b078;
+  --color-gold-500: #aa9658;
+  --color-gold-600: #93804a;
+
+  --color-ink-950: #101218;
+  --color-ink-900: #171a22;
+  --color-ink-800: #21252f;
+  --color-ink-700: #2d3240;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-slate-900 tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+}
+
+@layer components {
+  .card {
+    @apply min-w-0 rounded-xl border border-slate-200/80 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_4px_12px_rgba(15,23,42,0.04)];
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 shadow-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/15 disabled:cursor-not-allowed disabled:bg-slate-50;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[13px] font-medium text-slate-700;
+  }
+
+  .table-head {
+    @apply px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-wider text-slate-500;
+  }
+
+  .table-cell {
+    @apply px-4 py-3 text-sm text-slate-700;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-70;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:bg-slate-50;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  background-clip: content-box;
+}
